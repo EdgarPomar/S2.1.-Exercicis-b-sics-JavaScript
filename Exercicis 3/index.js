@@ -34,7 +34,25 @@ esperarISaludar('Joan', (nom) => {
 // Callbacks amb arrays: Escriu una funció processarElements que accepti dos paràmetres: un array i una funció de callback. 
 // La funció processarElements ha d'invocar la funció de callback per cada element de l'array.
 
+const processarElements = (array, callback) => {
+  for (let i = 0; i < array.length; i++) {
+    callback(array[i], i, array);
+  }
+};
+const array = [1, 2, 3, 4, 5];
+processarElements(array, (element, index) => {
+  console.log(`Element a l'índex ${index}: ${element}`);
+});
 
 // Exercici 5
 // Escriu una funció processarCadena que accepti dos paràmetres: una cadena de caràcters i una funció de callback. 
 // La funció processarCadena ha de convertir la cadena a majúscules i llavors invocar la funció de callback amb la cadena transformada.
+
+const processarCadena = (cadena, callback) => {
+  const cadenaTransformada = cadena.toUpperCase(); 
+  callback(cadenaTransformada); 
+};
+const cadena = "hola món";
+processarCadena(cadena, (cadenaTransformada) => {
+  console.log(`La cadena transformada és: ${cadenaTransformada}`);
+});
